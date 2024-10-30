@@ -1,12 +1,12 @@
 import shutil
 import warnings
 from sklearn import metrics
-from sklearn.metrics import confusion_matrix, plot_confusion_matrix
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 warnings.filterwarnings("ignore")
 import torch.utils.data as data
 import os
 import argparse
-from sklearn.metrics import f1_score, confusion_matrix
+from sklearn.metrics import f1_score, ConfusionMatrixDisplay
 from data_preprocessing.sam import SAM
 import torch.nn.parallel
 import torch.backends.cudnn as cudnn
@@ -438,7 +438,7 @@ class RecorderMeter1(object):
         plt.grid(True, which='minor', linestyle='-')
         plt.gcf().subplots_adjust(bottom=0.15)
 
-        plot_confusion_matrix(cm_normalized, title='Normalized confusion matrix')
+        ConfusionMatrixDisplay(cm_normalized, title='Normalized confusion matrix')
         # show confusion matrix
         plt.savefig('./log/confusion_matrix.png', format='png')
         # fig.savefig(save_path, dpi=dpi, bbox_inches='tight')
