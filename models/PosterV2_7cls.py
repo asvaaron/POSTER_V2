@@ -257,7 +257,7 @@ class pyramid_trans_expr2(nn.Module):
         self.VIT = VisionTransformer(depth=2, embed_dim=embed_dim)
 
         self.ir_back = Backbone(50, 0.0, 'ir')
-        ir_checkpoint = torch.load(r'C:\Users\86187\Desktop\posterv2\mixfacial\models\pretrain\ir50.pth', map_location=lambda storage, loc: storage)
+        ir_checkpoint = torch.load(r'models/pretrain/ir50.pth', map_location=lambda storage, loc: storage)
 
         self.ir_back = load_pretrained_weights(self.ir_back, ir_checkpoint)
 
